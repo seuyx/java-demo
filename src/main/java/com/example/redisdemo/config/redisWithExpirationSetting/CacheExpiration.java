@@ -12,20 +12,10 @@ public enum CacheExpiration {
     LONG(30),
     SHORT(10);
 
-    public static final String DEFAULT_TTL = "default";
-    public static final String LONG_TTL = "long";
-    public static final String SHORT_TTL = "short";
+    public static final String DEFAULT_TTL = "DEFAULT";
+    public static final String LONG_TTL = "LONG";
+    public static final String SHORT_TTL = "SHORT";
 
     @Getter
     private final Integer ttl;
-
-    public static CacheExpiration fromCacheName(String name) {
-        for (var item: CacheExpiration.values()) {
-            if (item.name().equalsIgnoreCase(name)) {
-                return item;
-            }
-        }
-
-        return DEFAULT;
-    }
 }
