@@ -17,7 +17,7 @@ public enum CacheExpiration {
     public static final String SHORT_TTL = "short";
 
     @Getter
-    private Integer ttl;
+    private final Integer ttl;
 
     public static CacheExpiration fromCacheName(String name) {
         for (var item: CacheExpiration.values()) {

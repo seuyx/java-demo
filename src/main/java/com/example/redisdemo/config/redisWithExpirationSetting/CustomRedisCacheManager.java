@@ -9,11 +9,6 @@ import org.springframework.data.redis.cache.RedisCacheWriter;
 
 import java.time.Duration;
 
-/**
- * @Description RedisCacheManager
- * @Author huangd
- * @Date 2019-12-31 16:09
- **/
 @Slf4j
 @Profile("CustomRedis")
 public class CustomRedisCacheManager extends RedisCacheManager {
@@ -22,16 +17,11 @@ public class CustomRedisCacheManager extends RedisCacheManager {
         super(cacheWriter, defaultCacheConfiguration);
     }
 
-    /**
-     * createRedisCache
-     * @param name
-     * @param cacheConfig
-     * @return RedisCache
-     */
     @Override
     protected RedisCache createRedisCache(String name, RedisCacheConfiguration cacheConfig) {
         CacheExpiration expiration = CacheExpiration.fromCacheName(name);
 
+        assert cacheConfig != null;
         return super.createRedisCache(name, cacheConfig.entryTtl(Duration.ofSeconds(expiration.getTtl())));
     }
 }

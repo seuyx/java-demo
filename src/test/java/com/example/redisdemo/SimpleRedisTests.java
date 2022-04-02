@@ -22,7 +22,7 @@ class SimpleRedisTests {
     private static RedisServer redisServer;
 
     @Value("${spring.redis.ttl}")
-    private int timeoutInSeconds;
+    private long timeoutInSeconds;
 
     @BeforeAll
     static void startRedis() {
