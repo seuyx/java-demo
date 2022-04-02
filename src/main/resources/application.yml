@@ -1,0 +1,8 @@
+spring:
+  redis:
+    host: localhost
+    port: 6379
+    ttl: 10
+  config:
+    activate:
+      on-profile: SimpleRedis, CustomRedis
